@@ -7,22 +7,16 @@ import { app } from "./app.js";
 dotenv.config({
     path: './.env'
 })
-app.post('/', (req, res) => {
-    res.status(200).send("surver jfsdjfbjs")
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000 ,()=>{
+        console.log(` server is running at the PORT : ${process.env.PORT}`);
+    })
 })
-app.listen(process.env.PORT || 8000, () => {
-    console.log(` server is running at the PORT : ${process.env.PORT}`);
-})
-// connectDB()
-// .then(()=>{
-//     app.listen(process.env.PORT || 8000 ,()=>{
-//         console.log(` server is running at the PORT : ${process.env.PORT}`);
-//     })
-// })
 
-// .catch((err)=>{
-//     console.error("MongoDB connection failed ",err);
-// })
+.catch((err)=>{
+    console.error("MongoDB connection failed ",err);
+})
 
 
 
