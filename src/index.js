@@ -8,6 +8,7 @@ dotenv.config({
     path: './.env' // If running from the root, this is correct, but ensure the file is named exactly '.env'
 })
 
+
 connectDB()
 .then(()=>{
     app.listen(process.env.PORT || 8000 ,()=>{
